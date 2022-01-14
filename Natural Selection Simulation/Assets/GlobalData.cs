@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public static class GlobalData
 {
-    public static NavMeshAgent agent;
-    public static bool tf = true;
+    //public static NavMeshAgent agent;
+    //public static bool tf = true;
+    public static int food = 0;
 }

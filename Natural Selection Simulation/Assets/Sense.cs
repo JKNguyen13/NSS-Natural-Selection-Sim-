@@ -17,10 +17,14 @@ public class Sense : MonoBehaviour
         
     }
 
-    public void OnTriggerEnter (Collider gameObject) {
-        if(gameObject.CompareTag("Food")){
-            //GlobalData.agent.destination = new Vector3(0,1,0);
+    public void OnTriggerEnter (Collider other) {
+        
+            
+            //GlobalData.tf = false;
+            
+            //GlobalData.agent.destination = other.transform.position;
+            
+        
 
         }
-    }
 }

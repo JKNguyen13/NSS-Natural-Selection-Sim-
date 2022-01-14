@@ -5,9 +5,10 @@ using UnityEngine;
 public class FoodGenerator : MonoBehaviour
 {   
     public Transform cubeclone;
+    
     int check = 1;
     //gameObject clone;
-    public float[] values;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -20,17 +21,18 @@ public class FoodGenerator : MonoBehaviour
     void Update()
     {
         if(check < 20){
-        var clone = Instantiate(cubeclone, new Vector3(Random.Range(-45,45), 1, Random.Range(-45,45)),Quaternion.identity);
+        Instantiate(cubeclone, new Vector3(Random.Range(-45,45), 1, Random.Range(-45,45)),Quaternion.identity);
         check++;
-        values[].Add(clone.position);
+     
 
         }
     }
 
-    public void OnTriggerEnter (Collider gameObject) {
-        if(gameObject.CompareTag("Agent")){
+    /*public void OnTriggerEnter (Collider other) {
+        if(other.gameObject.tag == "Agent"){
             Destroy(gameObject);
+            //agent.destination = new Vector3(0,1,0);
             Debug.Log(1);
         }
-    }
+    }*/
 }
