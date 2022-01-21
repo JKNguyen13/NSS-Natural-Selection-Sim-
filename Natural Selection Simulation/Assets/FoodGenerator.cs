@@ -5,8 +5,11 @@ using UnityEngine;
 public class FoodGenerator : MonoBehaviour
 {   
     public Transform cubeclone;
+    [SerializeField][Range(1,40)]
+    public int agentamount;
+
+    int amountnum = 0;
     
-    int check = 1;
     //gameObject clone;
     
     // Start is called before the first frame update
@@ -19,10 +22,11 @@ public class FoodGenerator : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        if(check < 20){
+    {   
+        amountnum++;
+        if(amountnum - 1 < agentamount){
         Instantiate(cubeclone, new Vector3(Random.Range(-45,45), 1, Random.Range(-45,45)),Quaternion.identity);
-        check++;
+ 
      
 
         }
