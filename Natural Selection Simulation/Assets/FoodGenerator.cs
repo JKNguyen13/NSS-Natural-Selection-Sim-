@@ -6,7 +6,7 @@ public class FoodGenerator : MonoBehaviour
 {   
     public Transform cubeclone;
     [SerializeField][Range(1,40)]
-    public int agentamount;
+    public int foodAmount;
 
     int amountnum = 0;
     
@@ -24,7 +24,7 @@ public class FoodGenerator : MonoBehaviour
     void Update()
     {   
         amountnum++;
-        if(amountnum - 1 < agentamount){
+        if(amountnum - 1 < foodAmount){
         Instantiate(cubeclone, new Vector3(Random.Range(-45,45), 1, Random.Range(-45,45)),Quaternion.identity);
  
      
