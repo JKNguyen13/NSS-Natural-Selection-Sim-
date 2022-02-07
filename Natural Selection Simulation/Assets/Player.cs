@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField][Range(1,5)]
+    [SerializeField][Range(1,10)]
     public int agentamount;
 
     int amountnum = 0;
@@ -18,7 +18,8 @@ public class Player : MonoBehaviour
 
     int time = 0;
     int final = 0;
-    int stamina = 4000;
+    int stamina = 8000;
+    float randomValue;
 
     [SerializeField]
     private bool swapNew = true;
@@ -30,6 +31,9 @@ public class Player : MonoBehaviour
     {       
         agent = this.GetComponent<NavMeshAgent>();
         swapNew = true;
+        GlobalData.amountOfAgents += 1;
+        GlobalData.averageSpeed += agent.speed;
+        
     }
 
     void Update()
@@ -64,35 +68,44 @@ public class Player : MonoBehaviour
         {
             this.agent.destination = this.agent.transform.position;
         }
-        if (final >= 5500 && clear) {
+        if (final >= 10000 && clear) {
             Debug.Log(1);
+            GlobalData.amountOfAgents -= 1;
+            GlobalData.averageSpeed -= agent.speed;
             Destroy(this.gameObject);
 
-        } else if (final >= 5500 && clear == false){
+        } else if (final >= 10000 && clear == false){
                 this.swapNew = true;
                 Debug.Log(2);
                 this.clear = true;
             for(int i = 0; i < GlobalData.spawnamount; i++){
-                Instantiate(agentclone,placementPosition(),Quaternion.identity);
+                randomValue = Random.Range(-0.5f,3);
+                Transform instantiated = Instantiate(agentclone,placementPosition(),Quaternion.identity);
+                instantiated.GetComponent<NavMeshAgent>().speed += Random.Range(-5,5);
+                instantiated.localScale += new Vector3(Random.Range(-0.5f,3),randomValue,Random.Range(-0.5f,3));
+                randomValue = 0;
             }
+
                 
                 GlobalData.spawnamount = 0;
-                stamina = 4000;
+                stamina = 8000;
                 final = 0;
     }
+    
+    
 
     }
 
     Vector3 placementPosition(){
         int posi = Random.Range(1,4);
         if(posi == 1){
-            return new Vector3(Random.Range(-48,48),1,-48);
+            return new Vector3(Random.Range(-48,48),1 + randomValue,-48);
         }else if(posi == 2){
-            return new Vector3(Random.Range(-48,48),1,48);
+            return new Vector3(Random.Range(-48,48),1 + randomValue,48);
         }else if(posi == 3){
-            return new Vector3(-48,1,Random.Range(-48,48));
+            return new Vector3(-48,1 + randomValue,Random.Range(-48,48));
         }else if(posi == 4){
-            return new Vector3(48,1,Random.Range(-48,48));
+            return new Vector3(48,1 + randomValue,Random.Range(-48,48));
         }else{
             return new Vector3(0,1,0);
         }

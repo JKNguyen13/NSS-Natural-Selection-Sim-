@@ -5,7 +5,7 @@ using UnityEngine;
 public class FoodGenerator : MonoBehaviour
 {   
     public Transform cubeclone;
-    [SerializeField][Range(1,40)]
+    [SerializeField][Range(1,100)]
     public int foodAmount;
 
     int amountnum = 0;
