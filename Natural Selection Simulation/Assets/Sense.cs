@@ -19,8 +19,9 @@ public class Sense : MonoBehaviour
     }
     public void OnTriggerEnter (Collider other) {
         if(other.gameObject.tag == "Food"){
+            GameObject food = GameObject.FindWithTag("Food");
             
-            agent.destination = GameObject.FindWithTag("Food").transform.position;
+            agent.destination = food.transform.position;
 
         }
     }

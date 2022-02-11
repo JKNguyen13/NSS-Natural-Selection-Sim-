@@ -363,6 +363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedText: {fileID: 774420426}
+  dayTimerText: {fileID: 0}
 --- !u!4 &485830580
 Transform:
   m_ObjectHideFlags: 0
@@ -425,6 +426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agentamount: 1
+  finalText: {fileID: 0}
   stamina: 8000
   swapNew: 0
   clear: 1
@@ -764,6 +766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agentamount: 10
+  finalText: {fileID: 0}
   stamina: 8000
   swapNew: 0
   clear: 1
@@ -928,7 +931,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ada2cac904fa6442ab114d5c069e8c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 0}
+  agent: {fileID: 527856760}
 --- !u!135 &1025876913
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -6,6 +6,8 @@ using TMPro;
 public class SpeedText : MonoBehaviour
 {
     public TextMeshProUGUI speedText;
+    public TextMeshProUGUI dayTimerText;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -16,5 +18,7 @@ public class SpeedText : MonoBehaviour
     void Update()
     {
         speedText.text = "Average Speed = " + GlobalData.averageSpeed / GlobalData.amountOfAgents;
+        GlobalData.daytimer++;
+        dayTimerText.text = "Time = " + GlobalData.daytimer;
     }
 }

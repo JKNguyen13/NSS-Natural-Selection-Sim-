@@ -11,9 +11,13 @@ public class GlobalData
     public static float averageSpeed = 0;
     public static int amountOfAgents = 0;
     
-    //public static int daytimer;
+    public static int daytimer = 0;
     public static int spawnamount = 0;
+    
 }
+
+
+
 
 /*public static class GlobalData
 {

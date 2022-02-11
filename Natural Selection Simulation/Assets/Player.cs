@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Player : MonoBehaviour
     int amountnum = 0;
 
     NavMeshAgent agent;
+    public TextMeshProUGUI finalText;
 
     public GlobalData stats = new GlobalData();
     //public GlobalData oandf = new GlobalData();
@@ -61,7 +63,7 @@ public class Player : MonoBehaviour
             time = 0;
         }
 
-        if(stats.food >= 1 && stop){ //add && stamina < 2000
+        if(stats.food >= 1 && stop && stamina < 2000){ //add && stamina < 2000
             this.swapNew = false;
             this.clear = false;
             inc = 0;
@@ -100,6 +102,7 @@ public class Player : MonoBehaviour
                 Transform instantiated = Instantiate(agentclone,placementPosition(),Quaternion.identity);
                 instantiated.GetComponent<NavMeshAgent>().speed += Random.Range(-5,5);
                 instantiated.localScale += new Vector3(Random.Range(-0.5f,3),randomValue,Random.Range(-0.5f,3));
+                instantiated.GetComponent<Player>().stamina = 8000;
                 randomValue = 0;
             }
 
@@ -111,7 +114,7 @@ public class Player : MonoBehaviour
                 inc = 1;
     }
     
-    
+    //finalText.text = "Time = " + final;
 
     }
 
